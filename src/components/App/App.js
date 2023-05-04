@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './App.module.scss'
 import { slist } from '../../utilities';
 import { useEffect } from 'react';
+import CartTotals from '../CartTotals/CartTotals';
 
 function App() {
 
@@ -41,7 +42,14 @@ function App() {
           })}
           </ul>
 
-        <AddItem addItem={addNewItem}/>
+        <div className='row'>
+          <div className='col-12 col-md-6 my-3'>
+            <AddItem addItem={addNewItem}/>
+          </div>
+          <div className='col-12 col-md-6 my-3'>
+            <CartTotals items={shoppingList} />
+          </div>
+        </div>
       </div>
     </div>
   );
