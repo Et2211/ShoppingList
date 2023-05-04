@@ -14,12 +14,22 @@ function Item({item,index}) {
         <div className={'col ' + styles.item}>
           <p>{item.quantity}x {item.itemName} </p>
         </div>
+
+        <div className={'col ' + styles.item}>
+          <p>£{item.price} each</p>
+        </div>
+
+        <div className={'col ' + styles.item}>
+          <p>£{item.price * item.quantity} total</p>
+        </div>
+
         <div className='col'>
           <div class="form-check">
             <input class="form-check-input" type="checkbox" checked={item.gotIt} id="flexCheckDefault" onChange={()=>{dispatch(checkItem(index))}}/>
             <label class="form-check-label" for="flexCheckDefault">Got It</label>
           </div>
         </div>
+
         <div className='col'>
           <div onClick={()=>dispatch(removeItem(index))}>
             <i class="fa-solid fa-xmark"></i>
