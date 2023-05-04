@@ -15,11 +15,8 @@ function App() {
   console.log(useSelector(state=>state))
   const shoppingList = useSelector(items)
 
-
-
-
-  const addNewItem = (itemName, quantity) => {
-    dispatch(addItem({itemName, quantity}))
+  const addNewItem = (itemName, quantity, price) => {
+    dispatch(addItem({itemName, quantity, price}))
   }
   useEffect(()=>{
     const list = document.getElementById("shoppingList")

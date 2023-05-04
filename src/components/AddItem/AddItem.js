@@ -5,11 +5,13 @@ function AddItem({addItem}) {
 
   const [newItem, setNewItem] = useState('')
   const [quantity, setQuantity] = useState(0)
+  const [price, setPrice] = useState(0)
 
   const addNewItem = (newItem, quantity) => {
     setNewItem('')
     setQuantity(0)
-    addItem(newItem, quantity)
+      setPrice(0)
+      addItem(newItem, quantity, price)
   }
 
   return (
@@ -23,7 +25,13 @@ function AddItem({addItem}) {
           <label for="quantity"> Quantity</label>
           <input type="number" className={"form-control " + styles.form_input} id="quantity" name="quantity" value={quantity} onChange={(e)=>setQuantity(e.target.value)} min="1" max="100"></input>
         </div>
+        <div className='col-6 col-md-3'>
+          <label for="quantity"> Price (per Item)</label>
+          <input type="number" className={"form-control " + styles.form_input} id="quantity" name="quantity" value={price} onChange={(e)=>setPrice(e.target.value)} min="1" max="100"></input>
+        </div>
       </div>
+
+      {error && <h5 className={styles.error}>Please enter an item</h5>}
 
       <button className='btn btn-primary mt-2' onClick={()=>addNewItem(newItem, quantity)}>Add</button>
     </>
