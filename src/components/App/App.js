@@ -21,7 +21,7 @@ function App() {
       <div className='container'>
 
         <h1>Shopping List</h1>
-        {shoppingList.map((item, index)=>{
+        {shoppingList && shoppingList.map((item, index)=>{
           return ( 
             <Item item={item} index={index}/>
             )
