@@ -22,7 +22,13 @@ function App() {
     const list = document.getElementById("shoppingList")
     if (list) slist(list);
   })
+  let total = 0
 
+  shoppingList.map(item => {
+    total+=(item.price * item.quantity)
+  })
+
+  console.log(total)
 
   return (
     <div className="App">
@@ -41,10 +47,10 @@ function App() {
 
         <div className='row'>
           <div className='col-12 col-md-6 my-3'>
-            <AddItem addItem={addNewItem}/>
+            <AddItem addItem={addNewItem} total={total}/>
           </div>
           <div className='col-12 col-md-6 my-3'>
-            <CartTotals items={shoppingList} />
+            <CartTotals total={total}/>
           </div>
         </div>
       </div>

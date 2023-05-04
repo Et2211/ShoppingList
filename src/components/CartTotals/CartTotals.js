@@ -3,18 +3,12 @@ import styles from './CartTotals.module.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { budget, setBudget } from '../../redux/budgetSlice';
 
-function CartTotals({items}) {
+function CartTotals({items, total}) {
 
   const dispatch= useDispatch()
   const [newBudget, setNewBudget] = useState(0)
-
-  let total = 0
   const budget = useSelector(state=>state.budget.value)
   
-
-  items.map(item => {
-    total+=(item.price * item.quantity)
-  })
 
   const saveNewBudget = () => {
     dispatch(setBudget(newBudget))
