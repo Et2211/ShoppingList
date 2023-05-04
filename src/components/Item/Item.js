@@ -9,7 +9,8 @@ function Item({item,index}) {
 
   return (
     <>
-      <div className='row'>
+    <div className={styles.item_container}>
+      <div className='row '>
         <div className={'col ' + styles.item}>
           <p>{item.quantity}x {item.itemName} </p>
         </div>
@@ -25,6 +26,7 @@ function Item({item,index}) {
           </div>
         </div>
       </div>
+    </div>
     </>
   );
 }
