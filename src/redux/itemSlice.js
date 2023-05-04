@@ -3,8 +3,18 @@ import { PayloadAction } from '@reduxjs/toolkit'
 import shoppingList from './../shoppingList' 
 
 const initialState = shoppingList
+
+
 const addItemToArray = (state, action) => {
   state.push(action.payload)
+}
+
+const removeItemFromArray = (state, action) => {
+  state.splice(action.payload, 1)
+}
+
+const checkItemOnList = (state, action) => {
+  state[action.payload].gotIt = !state[action.payload].gotIt
 }
 
 export const itemSlice = createSlice({
@@ -12,6 +22,8 @@ export const itemSlice = createSlice({
   initialState,
   reducers: {
     addItem: addItemToArray,
+    removeItem: removeItemFromArray,
+    checkItem: checkItemOnList
   }, 
 })
 
