@@ -1,6 +1,6 @@
 import Item from '../Item/Item';
 import AddItem from '../AddItem/AddItem';
-import { addItem } from '../../redux/itemSlice';
+import { items, addItem } from '../../redux/itemSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
 
 
   console.log(useSelector(state=>state))
-  const shoppingList = useSelector(state=>state.items)
+  const shoppingList = useSelector(items)
 
 
   const addNewItem = (itemName, quantity) => {
