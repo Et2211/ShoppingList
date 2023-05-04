@@ -5,9 +5,11 @@ import { persistReducer } from 'redux-persist';
 import thunk from 'redux-thunk';
 
 import itemSlice from './itemSlice';
+import budgetSlice from './budgetSlice';
 
 const reducers = combineReducers({
-  items: itemSlice
+  items: itemSlice,
+  budget: budgetSlice
 });
 
 const persistConfig = {
