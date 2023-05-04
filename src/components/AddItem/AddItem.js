@@ -1,23 +1,31 @@
 import { useEffect, useState } from 'react';
 import styles from './Additem.module.scss'
+import { useSelector } from 'react-redux';
 
-function AddItem({addItem}) {
+function AddItem({addItem, total}) {
 
   const [newItem, setNewItem] = useState('')
   const [quantity, setQuantity] = useState(1)
   const [price, setPrice] = useState(0)
   const [error, setError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
+  const budget = useSelector(state=>state.budget.value)
 
-  const addNewItem = (newItem, quantity) => {
-    if (newItem && newItem != ''){
 
+  const addNewItem = () => {
+    const newTotal = total + (price*quantity)
+    if (!newItem && newItem == ''){
+      setError(true)
+      setErrorMessage('Please enter an item')
+    } else if (newTotal > budget) {
+      setError(true)
+      setErrorMessage('This item will go over your budget. Please remove some items or adjust your budget')
+    } else {
       setNewItem('')
       setQuantity(1)
       setPrice(0)
       addItem(newItem, quantity, price)
       setError(false)
-    } else {
-      setError(true)
     }
   }
 
@@ -38,9 +46,9 @@ function AddItem({addItem}) {
         </div>
       </div>
 
-      {error && <h5 className={styles.error}>Please enter an item</h5>}
+      {error && <h5 className={styles.error}>{errorMessage}</h5>}
 
-      <button className='btn btn-primary mt-2' onClick={()=>addNewItem(newItem, quantity)}>Add</button>
+      <button className='btn btn-primary mt-2' onClick={()=>addNewItem()}>Add</button>
     </>
   );
 }
