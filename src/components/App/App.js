@@ -28,17 +28,15 @@ function App() {
     total+=(item.price * item.quantity)
   })
 
-  console.log(total)
-
   return (
     <div className="App">
       <div className='container'>
 
-        <h1>Shopping List</h1>
+        <h1 className='my-4'>Shopping List</h1>
         <ul id='shoppingList' className='p-0'>
         {shoppingList && shoppingList.map((item, index)=>{
           return ( 
-            <li className={styles.draggableList}>
+            <li className={"my-2 " + styles.draggableList}>
               <Item item={item} index={index}/>
             </li>
             )
