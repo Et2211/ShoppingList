@@ -6,12 +6,19 @@ function AddItem({addItem}) {
   const [newItem, setNewItem] = useState('')
   const [quantity, setQuantity] = useState(0)
   const [price, setPrice] = useState(0)
+  const [error, setError] = useState(false)
 
   const addNewItem = (newItem, quantity) => {
-    setNewItem('')
-    setQuantity(0)
+    if (newItem && newItem != ''){
+
+      setNewItem('')
+      setQuantity(0)
       setPrice(0)
       addItem(newItem, quantity, price)
+      setError(false)
+    } else {
+      setError(true)
+    }
   }
 
   return (
