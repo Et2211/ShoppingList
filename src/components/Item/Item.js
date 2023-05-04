@@ -15,7 +15,7 @@ function Item({item,index}) {
         </div>
         <div className='col'>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value={item.gotIt} id="flexCheckDefault" onChange={()=>{dispatch(checkItem(index))}}/>
+            <input class="form-check-input" type="checkbox" checked={item.gotIt} id="flexCheckDefault" onChange={()=>{dispatch(checkItem(index))}}/>
             <label class="form-check-label" for="flexCheckDefault">Got It</label>
           </div>
         </div>
