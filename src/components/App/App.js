@@ -1,9 +1,21 @@
 import Item from '../Item/Item';
 import AddItem from '../AddItem/AddItem';
 import { addItem } from '../../redux/itemSlice';
+import { useDispatch, useSelector } from 'react-redux';
+
+function App() {
+
+  const dispatch = useDispatch()
+
+
+  console.log(useSelector(state=>state))
+  const shoppingList = useSelector(state=>state.items)
+
+
   const addNewItem = (itemName, quantity) => {
     dispatch(addItem({itemName, quantity}))
   }
+
   return (
     <div className="App">
       <div className='container'>
