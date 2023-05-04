@@ -30,6 +30,6 @@ export const itemSlice = createSlice({
 export const { addItem, removeItem, checkItem } = itemSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
-export const selectCount = (state) => state.score
+export const items = (state) => state.items
 
 export default itemSlice.reducer
