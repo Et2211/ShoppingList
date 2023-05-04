@@ -16,7 +16,7 @@ function App() {
   const shoppingList = useSelector(items)
 
   const addNewItem = (itemName, quantity, price) => {
-    dispatch(addItem({itemName, quantity, price}))
+    dispatch(addItem({itemName, quantity, price, gotIt: false}))
   }
   useEffect(()=>{
     const list = document.getElementById("shoppingList")
