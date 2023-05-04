@@ -4,7 +4,7 @@ import styles from './Additem.module.scss'
 function AddItem({addItem}) {
 
   const [newItem, setNewItem] = useState('')
-  const [quantity, setQuantity] = useState(0)
+  const [quantity, setQuantity] = useState(1)
   const [price, setPrice] = useState(0)
   const [error, setError] = useState(false)
 
@@ -12,7 +12,7 @@ function AddItem({addItem}) {
     if (newItem && newItem != ''){
 
       setNewItem('')
-      setQuantity(0)
+      setQuantity(1)
       setPrice(0)
       addItem(newItem, quantity, price)
       setError(false)
