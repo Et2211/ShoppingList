@@ -1,4 +1,9 @@
 import Item from '../Item/Item';
+import AddItem from '../AddItem/AddItem';
+import { addItem } from '../../redux/itemSlice';
+  const addNewItem = (itemName, quantity) => {
+    dispatch(addItem({itemName, quantity}))
+  }
   return (
     <div className="App">
       <div className='container'>
@@ -10,6 +15,7 @@ import Item from '../Item/Item';
             )
           })}
 
+        <AddItem addItem={addNewItem}/>
       </div>
     </div>
   );
